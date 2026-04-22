@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Etiqueta AURORA Lip Care</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap');
+
+  :root {
+    --accent: #c0395a;
+    --accent-light: #e0738f;
+    --accent-pale: #fce8ed;
+    --accent-border: #d4607a;
+    --accent-row: #fdf0f3;
+    --text-dark: #1a1a1a;
+    --text-mid: #555;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #f0e0e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Source Sans 3', sans-serif;
+    padding: 40px 20px;
+  }
+
+  .label-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .label-title-outer {
+    font-size: 12px;
+    color: #a05070;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .label {
+    width: 420px;
+    background: #fdf8f9;
+    border: 1.5px solid #d4a0b0;
+    border-radius: 4px;
+    padding: 18px 20px 16px 20px;
+    box-shadow: 0 2px 18px rgba(180,60,90,0.12);
+    position: relative;
+  }
+
+  .label-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+  }
+
+  .brand-name {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .brand-sub {
+    font-size: 9.5px;
+    color: var(--accent-light);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .product-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: right;
+  }
+  .product-sub {
+    font-size: 10px;
+    color: var(--text-mid);
+    text-align: right;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .label-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .box {
+    border: 1px solid var(--accent-border);
+    padding: 7px 9px;
+    background: #fff;
+    border-radius: 2px;
+  }
+  .box.full-width { grid-column: 1 / -1; }
+
+  .box-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--accent-border);
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+    font-style: italic;
+  }
+  .box-text { font-size: 8.5px; color: #222; line-height: 1.5; }
+  .box-text b { font-weight: 700; }
+
+  .ing-table { width: 100%; border-collapse: collapse; font-size: 7.8px; }
+  .ing-table thead tr { background: var(--accent); color: #fff; }
+  .ing-table thead th {
+    padding: 3px 5px; text-align: left; font-weight: 600;
+    letter-spacing: 0.3px; font-size: 7.5px; text-transform: uppercase;
+  }
+  .ing-table tbody tr:nth-child(even) { background: var(--accent-row); }
+  .ing-table tbody tr:nth-child(odd)  { background: #fff; }
+  .ing-table td { padding: 2.5px 5px; color: #222; vertical-align: top; }
+  .ing-table td:last-child { color: var(--accent); font-style: italic; }
+  .ing-table tfoot td { background: var(--accent); color: #fff; font-weight: 700; padding: 3px 5px; }
+
+  .active-row {
+    display: flex; justify-content: space-between;
+    font-size: 8.5px; padding: 2px 0; border-bottom: 1px dotted #e0b0bc;
+  }
+  .active-row:last-child { border-bottom: none; }
+  .active-name { font-weight: 700; color: var(--text-dark); }
+  .active-purpose { color: var(--accent); font-style: italic; }
+  .active-header {
+    display: flex; justify-content: space-between;
+    font-size: 7.5px; font-weight: 700; text-transform: uppercase;
+    color: var(--accent); letter-spacing: 0.5px;
+    margin-bottom: 3px; border-bottom: 1px solid var(--accent-border); padding-bottom: 2px;
+  }
+
+  .warn-item { font-size: 8px; color: #222; line-height: 1.45; margin-bottom: 3px; }
+  .warn-item b { color: var(--text-dark); }
+
+  .label-footer {
+    margin-top: 10px;
+    border-top: 1.5px solid var(--accent);
+    padding-top: 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .footer-left { font-size: 7.5px; color: #555; line-height: 1.6; }
+  .footer-left b { color: var(--text-dark); font-weight: 700; }
+  .footer-right { text-align: center; }
+
+  #barcodeCanvas { display: block; }
+  .barcode-num { font-size: 7.5px; letter-spacing: 1px; color: var(--text-dark); margin-top: 1px; text-align: center; font-family: monospace; }
+</style>
+</head>
+<body>
+<div class="label-wrapper">
+  <div class="label-title-outer">Etiqueta · Producto Cosmético</div>
+
+  <div class="label">
+
+    <div class="label-header">
+      <div>
+        <div class="brand-name">AURORA</div>
+        <div class="brand-sub">Universidad Mariana</div>
+      </div>
+      <div>
+        <div class="product-name">PROBIOTICS<br>LIP CARE</div>
+        <div class="product-sub">Peso neto: 4 g</div>
+      </div>
+    </div>
+
+    <div class="label-grid">
+
+      <div class="box">
+        <div class="box-title">Ingredientes Activos</div>
+        <div class="active-header"><span>Ingrediente</span><span>Función</span></div>
+        <div class="active-row">
+          <span class="active-name">Aloe vera (Extracto oleoso)</span>
+          <span class="active-purpose">Regenerador</span>
+        </div>
+        <div class="active-row">
+          <span class="active-name">Vitamina E (Tocoferol)</span>
+          <span class="active-purpose">Antioxidante</span>
+        </div>
+        <div class="active-row">
+          <span class="active-name">L. rhamnosus (probiótico)</span>
+          <span class="active-purpose">Microbiota labial</span>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="box-title">Usos</div>
+        <div class="box-text">
+          • Hidrata y repara la barrera lipídica de los labios.<br>
+          • Reduce la pérdida de agua transepidérmica.<br>
+          • Equilibra la microbiota labial mediante acción postbiótica.<br>
+          • Aporta color y efecto calmante inmediato.
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="box-title">Advertencias</div>
+        <div class="warn-item"><b>Solo uso externo.</b></div>
+        <div class="warn-item"><b>No usar</b> en piel irritada o con heridas abiertas.</div>
+        <div class="warn-item"><b>Evitar contacto</b> con los ojos. Si ocurre, enjuagar con agua.</div>
+        <div class="warn-item"><b>Suspender uso</b> si se presenta irritación.</div>
+        <div class="warn-item"><b>Mantener fuera</b> del alcance de niños menores de 3 años.</div>
+      </div>
+
+      <div class="box">
+        <div class="box-title">Modo de Uso</div>
+        <div class="box-text">
+          Aplicar directamente sobre los labios cuantas veces sea necesario.<br><br>
+          • Preferiblemente antes de exposición al frío, viento o sol.<br>
+          • Reaplicar tras la ingesta de alimentos.<br>
+          • Para mejor resultado, usar en labios limpios y secos.
+        </div>
+      </div>
+
+      <div class="box full-width">
+        <div class="box-title">Fórmula Completa — Ingredientes</div>
+        <table class="ing-table">
+          <thead>
+            <tr><th>Componente</th><th>Masa (g)</th><th>%</th><th>Función Técnica</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Aceite de coco (<i>Cocos nucifera</i> Oil)</td><td>2.267</td><td>56.68%</td><td>Vehículo oleoso y emoliente</td></tr>
+            <tr><td>Cera de abeja (Beeswax)</td><td>0.994</td><td>24.86%</td><td>Agente estructural y de barrera</td></tr>
+            <tr><td>Manteca de cacao (<i>Theobroma Cacao</i> Butter)</td><td>0.453</td><td>11.34%</td><td>Reparación de tejido y consistencia</td></tr>
+            <tr><td>Aloe vera (Extracto oleoso)</td><td>0.227</td><td>5.67%</td><td>Activo regenerador (sin fase acuosa)</td></tr>
+            <tr><td>Colorante cosmético (Mica)</td><td>0.040</td><td>1.00%</td><td>Pigmentación estética</td></tr>
+            <tr><td>Vitamina E (Tocopherol)</td><td>0.017</td><td>0.42%</td><td>Antioxidante para la fase oleosa</td></tr>
+            <tr><td>Probiótico (<i>L. rhamnosus</i>)</td><td>0.003</td><td>0.03%</td><td>Beneficio postbiótico (microbiota)</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td><b>Total</b></td><td><b>4.001</b></td><td><b>100%</b></td><td></td></tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="box">
+        <div class="box-title">Otra Información</div>
+        <div class="box-text">
+          • Conservar en lugar fresco y seco, alejado de la luz solar directa.<br>
+          • No exponer a temperaturas superiores a 30 °C.<br>
+          • Fórmula <b>anhídra</b> — libre de conservantes artificiales.
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="box-title">¿Preguntas o comentarios?</div>
+        <div class="box-text">
+          Elaborado en:<br>
+          <b>Universidad Mariana</b><br>
+          Facultad de Ingeniería · Ingeniería de Procesos<br>
+          San Juan de Pasto, Nariño, Colombia<br><br>
+          Autores: Maya Melany · Vasquez Paul
+        </div>
+      </div>
+
+    </div>
+
+    <div class="label-footer">
+      <div class="footer-left">
+        <b>EXP:</b> 12/2026<br>
+        Producto cosmético de uso externo · No medicamento<br>
+        Elaborado bajo técnica fusión–enfriamiento
+      </div>
+      <div class="footer-right">
+        <canvas id="barcodeCanvas"></canvas>
+        <div class="barcode-num" id="barcodeNum"></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="label-title-outer">Ingeniería de Procesos · 2025</div>
+</div>
+
+<script>
+(function() {
+  // EAN-13 encoding
+  const L_CODE = ['0001101','0011001','0010011','0111101','0100011','0110001','0101111','0111011','0110111','0001011'];
+  const G_CODE = ['0100111','0110011','0011011','0100001','0011101','0111001','0000101','0010001','0001001','0010111'];
+  const R_CODE = ['1110010','1100110','1101100','1000010','1011100','1001110','1010000','1000100','1001000','1110100'];
+  const PARITY = ['LLLLLL','LLGLGG','LLGGLG','LLGGGL','LGLLGG','LGGLLG','LGGGLL','LGLGLG','LGLGGL','LGGLGL'];
+
+  function calcCheck(s12) {
+    let sum = 0;
+    for (let i = 0; i < 12; i++) sum += parseInt(s12[i]) * (i % 2 === 0 ? 1 : 3);
+    return ((10 - (sum % 10)) % 10).toString();
+  }
+
+  function encodeEAN13(code13) {
+    const d = code13.split('').map(Number);
+    const par = PARITY[d[0]];
+    let bits = '101'; // start
+    for (let i = 1; i <= 6; i++) bits += par[i-1] === 'L' ? L_CODE[d[i]] : G_CODE[d[i]];
+    bits += '01010'; // middle
+    for (let i = 7; i <= 12; i++) bits += R_CODE[d[i]];
+    bits += '101'; // end
+    return bits;
+  }
+
+  const base = '570000001201';
+  const full = base + calcCheck(base);
+  const bits = encodeEAN13(full);
+
+  const BW = 1.6, BH = 44, ML = 6, MR = 6, MT = 2, MB = 2;
+  const W = bits.length * BW + ML + MR;
+  const H = BH + MT + MB;
+
+  const canvas = document.getElementById('barcodeCanvas');
+  canvas.width  = W;
+  canvas.height = H;
+  canvas.style.width  = W + 'px';
+  canvas.style.height = H + 'px';
+
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.fillStyle = '#1a1a1a';
+  for (let i = 0; i < bits.length; i++) {
+    if (bits[i] === '1') ctx.fillRect(ML + i * BW, MT, BW, BH);
+  }
+
+  // Format: X XXXXXX XXXXXX
+  const fmt = full[0] + ' ' + full.slice(1,7) + ' ' + full.slice(7);
+  document.getElementById('barcodeNum').textContent = fmt;
+})();
+</script>
+</body>
+</html>
